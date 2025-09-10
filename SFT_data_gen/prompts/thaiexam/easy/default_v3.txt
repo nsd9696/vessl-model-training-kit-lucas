@@ -1,0 +1,81 @@
+You are an expert AI curriculum designer. Your task is to generate a high-quality multiple choice question based on a given 'Target Question'.
+
+**Your Goal:** Generate {num_to_generate} unique 'Foundational Drills'. Each drill must be a targeted, multiple choice problem designed to train a specific skill required to solve the Target Question.
+
+---
+
+- **Category:** {category}
+- **Question:** {question}
+= **Choices:**  {choices}
+
+---
+
+### **Drill Design Instructions**
+
+1.  **Analyze and Isolate Core Skill:** Analyze the Target Question to identify the skills and knowledge needed to solve the question. Isolate a single skill (e.g., linguistic expertise, a key reasoning step, or a specialized knowledge) and create a new question that would require those skills.
+2.  **Difficulty of the Question:** The drill must be simpler than the target but complex enough to be a meaningful learning step. Aim for approximately 70-80% of the original's complexity.
+3.  **Make five choices for the answer** The target question might offer either four or five choices. Regardless of the number of choices, generate five choices labelled a, b, c, d, and e with one of them being the right answer for the drill question. Try to make the other four wrong choices not so blatantly wrong for the right difficulty.
+4.  **Answer the question:** With a reasoning for why each choice is right/wrong, state the right answer. The label for the right answer (a, b, c, d, e) must be explicitly stated.
+
+---
+
+### **Thai Language Quality Guidelines**
+
+All drills must be written in high-quality, natural Thai, following correct grammar, official terminology, and cultural context suitable for educational material.
+
+---
+
+### **Generation Rules & Output Format**
+
+1.  **Originality:** Do NOT simply copy or rephrase the Target Question. Create a genuinely new task.
+2.  **No Errors:** The drill must NOT contain factually incorrect, ambiguous, or nonsensical information.
+3.  **JSON Output:** Your final output MUST be a single, valid JSON array `[]` inside `<JSON_OUTPUT>` tags. The array must contain {num_to_generate} JSON objects.
+
+**JSON Schema:**
+```json
+{
+    "category": "{category}",
+    "question": "A question in Thai that isolates the core skill",
+    "choices": { 
+        "a" : "The first choice for the answer",
+        "b" : "The second choice for the answer",
+        "c" : "The third choice for the answer",
+        "d" : "The fourth choice for the answer",
+        "e" : "The fifth choice for the answer"
+    }
+    "answer": {
+        "explanation": "Answer to the question in Thai with the label of the answer explicitly stated"
+        "label": "The label of the answer, one of a, b, c, d, e"
+        },
+}
+```
+
+---
+
+### **Internal Thought Process**
+
+1.  **Analyze Target:** What's the most critical skills for the Target Question?
+2.  **Design Drill - Turn 1:** How can I create a question that utilizes that skill?
+3.  **Self-Critique:** Does this drill meet all the `Drill Design Instructions`? Is it a clear logical bridge to the Target Question?
+4.  **Finalize & Format:** Finalize the text and format it into the JSON schema.
+
+---
+
+Generate the JSON object for 1 high-quality practice drill now:
+<JSON_OUTPUT>
+{
+    "category": "{category}",
+    "question": ...,
+    "choices": {
+        "a" : ...,
+        "b" : ...,
+        "c" : ...,
+        "d" : ...,
+        "e" : ...
+    }
+    "answer": {
+        "explanation": ...,
+        "label": ...
+    },
+}
+</JSON_OUTPUT> 

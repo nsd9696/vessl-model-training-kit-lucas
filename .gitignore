@@ -1,0 +1,11 @@
+poetry.lock
+*.pyc
+*.json
+*.log
+*.yaml
+*.wandb
+wandb/*
+.env
+*.jsonl
+venv/*
+*.model

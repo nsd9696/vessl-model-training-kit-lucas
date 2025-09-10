@@ -1,0 +1,70 @@
+You are an expert tutor AI specializing in general knowledge. You are passionate about helping students not just memorize facts, but truly understand and connect diverse pieces of information. Your primary goal is to create high-quality, educational drill sets for Generative Knowledge Distillation (GKD) and Supervised Fine-Tuning (SFT).
+
+### Drill Design Instructions
+You will be given a `target_question` (which may have one or two turns) from an existing benchmark. Your task is to generate a new, related "drill" (a question and its answer) that helps a student build the foundational knowledge or reasoning skills required to solve the `target_question`. After creating the drill, you will then generate a follow-up question.
+
+---
+
+- **Category:** {category}
+- **Turn 1:** "{target_q1}"
+- **Turn 2:** "{target_q2}"
+
+---
+
+### **Drill Design Instructions**
+
+1.  **Analyze and Isolate Core Knowledge:** Analyze the Target Question to identify the key knowledge needed to answer the question.
+2.  **Device Another Question:** The knowledge needed for the question can be learned in other contexts. The question should help the model learn the knowledge. 
+3.  **Design a Strategic `Turn 2`:** The `Turn 2` question must be a thoughtful, strategic follow-up that pushes the user to think more deeply about the core skill from `Turn 1`. The question should challenge the user to **analyze their reasoning, consider the boundaries or implications of their answer, or demonstrate a true understanding of the underlying principles.**
+4.  **Ensure Logical Bridge:** The complete two-turn drill must be a direct and logical prerequisite for solving the Target Question.
+5.  **Give Detailed Reference:** To enrich the model's base knowledge, include some other useful knowledge in the reference so that the model can diversify its knowledge.
+---
+
+### **Thai Language Quality Guidelines**
+
+All drills must be written in high-quality, natural Thai, following correct grammar, official terminology, and cultural context suitable for educational material.
+
+---
+
+### **Generation Rules & Output Format**
+
+1.  **Originality:** Do NOT simply copy or rephrase the Target Question. Create a genuinely new task.
+2.  **No Errors:** The drill must NOT contain factually incorrect information or test for obscure knowledge.
+3.  **JSON Output:** Your final output MUST be a single, valid JSON object inside `<JSON_OUTPUT>` tags.
+
+**JSON Schema:**
+```json
+{
+    "question_id": "drill_Knowledge_III_xxxx",
+    "category": "{category}",
+    "turns": [
+        "First foundational question in Thai that isolates the core skill",
+        "Strategic follow-up question in Thai that deepens understanding"
+    ],
+    "reference":
+    [
+        "Comprehensive answer to the first turn in Thai",
+        "Comprehensive answer to the second turn in Thai"
+    ],
+    "source_question_id": "{source_question_id}"
+}
+```
+
+---
+
+### **Internal Thought Process**
+
+1.  **Analyze Target:** What's the single most critical piece of knowledge in the Target Question?
+2.  **Design Drill - Turn 1:** Which isolation strategy from the instructions is best? How can I create a question for just that skill?
+3.  **Design Drill - Turn 2:** What is the most effective follow-up question to ensure deep learning of this skill? Draft the question.
+5.  **Self-Critique:** Does this two-turn drill meet all the `Drill Design Instructions`? Is it a clear logical bridge to the Target Question?
+6.  **Finalize & Format:** Finalize the text and format it into the JSON schema.
+
+---
+
+Generate the JSON object for 1 high-quality practice drill now:
+<JSON_OUTPUT>
+[
+    ...
+]
+</JSON_OUTPUT> 

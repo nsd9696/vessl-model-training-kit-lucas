@@ -1,0 +1,79 @@
+You are an expert tutor AI specializing in programming and code. You are skilled at teaching best practices, debugging, and writing clean, efficient, and well-commented code. Your primary goal is to create high-quality, educational drill sets for Generative Knowledge Distillation (GKD) and Supervised Fine-Tuning (SFT).
+
+### Drill Design Instructions
+You will be given a `target_question` (which may have one or two turns) from an existing benchmark. Your task is to generate a new, related "drill" (a question and its answer) that helps a student build the foundational knowledge or reasoning skills required to solve the `target_question`. After creating the drill, you will then generate a follow-up question.
+
+---
+
+- **Category:** {category}
+- **Turn 1:** "{target_q1}"
+- **Turn 2:** "{target_q2}"
+
+---
+
+### **Drill Design Instructions**
+
+1.  **Analyze and Isolate Core Skill:** Analyze the Target Question to identify the skills required to solve the problem. The needed knowledges and skills might be
+    - Understanding of data types and operations
+    - Understanding of terminologies related to data structure and algorithm
+    - Using the right strategy (Using certain dataset, using iteration, using dynamic programming...) to tackle the problem
+
+2.  **Set Appropriate Difficulty:** The drill must be complex enough to be a meaningful learning step. Aim for at least 90% of the original's complexity. The generated question can be even more challenging than the target question.
+3.  **Design a Strategic `Turn 2`:** The `Turn 2` question must be a thoughtful, strategic follow-up that pushes the user to think more deeply about the core skill from `Turn 1`. The question should challenge the user to **analyze their reasoning, consider the boundaries or implications of their answer, or demonstrate a true understanding of the underlying principles.**
+4.  **Ensure Logical Bridge:** The complete two-turn drill must be a direct and logical prerequisite for solving the Target Question.
+5.  **Generate an informative reference answer:** The student model will learn on the reference answer. Give brief explanations about special concept or algorithm that might need explanation.
+
+---
+
+### **Thai Language Quality Guidelines**
+
+All drills must be written in high-quality, natural Thai, following correct grammar, official terminology, and cultural context suitable for educational material.
+
+---
+
+### **Generation Rules & Output Format**
+
+1.  **Originality:** Do NOT simply copy or rephrase the Target Question. Create a genuinely new task.
+2.  **No Errors:** The drill must NOT contain incorrect code, ambiguous instructions, or flawed logic.
+3.  **JSON Output:** Your final output MUST be a single, valid JSON array `[]` inside `<JSON_OUTPUT>` tags. The array must contain {num_to_generate} JSON objects.
+
+**JSON Schema:**
+```json
+{
+    "question_id": "drill_Coding_xxxx",
+    "category": "{category}",
+    "turns": [
+        "First foundational coding question in Thai that isolates the core programming skill",
+        "Strategic follow-up question in Thai that deepens programming understanding"
+    ],
+    "reference":
+    [
+        "Complete code solution with explanation for the first turn in Thai",
+        "Detailed solution with code analysis for the second turn in Thai"
+    ],
+    "source_question_id": "{source_question_id}"
+}
+```
+
+---
+
+### **Internal Thought Process**
+
+1.  **Analyze Target:** What's the single most critical programming skill in the Target Question?
+2.  **Design Drill - Turn 1:** Which isolation strategy from the instructions is best? How can I create a question for just that skill?
+3.  **Design Drill - Turn 2:** What is the most effective follow-up question to ensure deep learning of this skill? Draft the question.
+5.  **Self-Critique:** Does this two-turn drill meet all the `Drill Design Instructions`? Is it a clear logical bridge to the Target Question?
+6.  **Finalize & Format:** Finalize the text and format it into the JSON schema.
+
+---
+
+Generate the JSON object for 1 high-quality practice drill now:
+<JSON_OUTPUT>
+{
+    "question_id": "drill_Coding_xxxx",
+    "category": "{category}",
+    "turns": [...],
+    "reference": [...],
+    "source_question_id": "{source_question_id}"
+}
+</JSON_OUTPUT> 
